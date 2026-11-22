@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #090d16;
+    --bg-surface: #111827;
+    --bg-card: #182234;
+    --border-color: #243248;
+    --text-primary: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-cyan: #06b6d4;
+    --accent-blue: #3b82f6;
+    --accent-green: #10b981;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b111e;
+}
+::-webkit-scrollbar-thumb {
+  background: #253347;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374b67;
+}
+
+/* React Flow styling custom overrides */
+.react-flow__node {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.graph-node-app {
+  background: #1e3a8a !important;
+  color: #bfdbfe !important;
+  border: 1px solid #3b82f6 !important;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.graph-node-db {
+  background: #064e3b !important;
+  color: #a7f3d0 !important;
+  border: 1px solid #10b981 !important;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.graph-node-agency {
+  background: #451a03 !important;
+  color: #fed7aa !important;
+  border: 1px solid #f97316 !important;
+  padding: 10px 14px;
+}
+
+.graph-node-workflow {
+  background: #312e81 !important;
+  color: #c7d2fe !important;
+  border: 1px solid #6366f1 !important;
+  padding: 10px 14px;
+}
+
+.graph-node-api {
+  background: #111d33 !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #283a54 !important;
+  padding: 8px 12px;
+}
+
+.graph-risk {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.35) !important;
+}
+
+.graph-node-vuln {
+  background: #450a0a !important;
+  color: #fecaca !important;
+  border: 1px solid #dc2626 !important;
+  padding: 8px 12px;
+}

@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  voyagesim:
+    build:
+      context: .
+      dockerfile: backend/voyagesim/Dockerfile
+    container_name: sentinel-voyagesim
+    ports:
+      - "8001:8001"
+    environment:
+      - PORT=8001
+    restart: unless-stopped
+
+  sentinel-backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: sentinel-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - VOYAGESIM_URL=http://voyagesim:8001
+      - DATABASE_URL=sqlite:///./sentinel.db
+      - ENABLED_MODULES=all
+    depends_on:
+      - voyagesim
+    restart: unless-stopped
+
+  sentinel-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sentinel-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - sentinel-backend
+    restart: unless-stopped
